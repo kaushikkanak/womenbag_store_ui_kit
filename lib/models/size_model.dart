@@ -8,7 +8,7 @@ class SizeModel {
   );
 }
 
-List sizeRadio = [
+List sizeRadioData = [
   SizeModel(false, 'S'),
   SizeModel(false, 'M'),
   SizeModel(false, 'L'),

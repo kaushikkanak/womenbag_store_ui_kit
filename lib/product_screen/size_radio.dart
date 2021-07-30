@@ -15,18 +15,21 @@ class _SizeRadioState extends State<SizeRadio> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
+      padding: EdgeInsets.only(left: 8),
       height: size.height * 0.1,
       child: ListView.builder(
-          itemCount: sizeRadio.length,
+          scrollDirection: Axis.horizontal,
+          itemCount: sizeRadioData.length,
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
                 setState(() {
-                  sizeRadio.forEach((element) => element.isSelected = false);
-                  sizeRadio[index].isSelected = true;
+                  sizeRadioData
+                      .forEach((element) => element.isSelected = false);
+                  sizeRadioData[index].isSelected = true;
                 });
               },
-              child: RadioItem(sizemodel: sizeRadio[index]),
+              child: RadioItem(sizemodel: sizeRadioData[index]),
             );
           }),
     );
@@ -38,14 +41,15 @@ class RadioItem extends StatelessWidget {
   final SizeModel sizemodel;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.all(15.0),
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           new Container(
-            height: 50.0,
-            width: 50.0,
+            height: size.height * 0.06,
+            width: size.width * 0.12,
             child: Center(
               child: Text(sizemodel.buttonText,
                   style: TextStyle(
