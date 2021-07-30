@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:womenbag_store_ui_kit/product_screen/size_radio.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -149,6 +150,18 @@ class ProductScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Size',
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    color: Color(0xff060608),
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizeRadio()
           ],
         ),
       ),
