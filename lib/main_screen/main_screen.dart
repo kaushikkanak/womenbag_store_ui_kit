@@ -32,129 +32,149 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        height: double.infinity,
-        child: SingleChildScrollView(
-          physics: AlwaysScrollableScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  color: Color(0xffFFB9C4),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
-                ),
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        'Find your Favorite \nItems!',
-                        style: TextStyle(
-                          color: Color(0xff8B2833),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 32,
-                        ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              child: Stack(
+                children: [
+                  Container(
+                    height: size.height * 0.22,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color(0xffFFB9C4),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 15),
-                          child: Container(
-                            width: size.width * 0.75,
-                            margin: EdgeInsets.symmetric(vertical: 15),
-                            padding: EdgeInsets.symmetric(horizontal: 15),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(29.5),
-                            ),
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: "Search",
-                                icon: Icon(Icons.search),
-                                border: InputBorder.none,
+                        Container(
+                          padding: EdgeInsets.only(left: 20),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Find your Favorite \nItems!',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline4!
+                                .copyWith(
+                                    color: Color(0xff8B2833),
+                                    fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(top: 20),
+                              padding: EdgeInsets.only(left: 10),
+                              height: size.height * 0.06,
+                              width: size.width * 0.7,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.search,
+                                    color: Colors.black.withOpacity(0.5),
+                                  ),
+                                  SizedBox(
+                                    width: size.width * 0.01,
+                                  ),
+                                  Expanded(
+                                    child: TextField(
+                                      onChanged: (value) {},
+                                      decoration: InputDecoration(
+                                        hintText: "Search",
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        // surffix isn't working properly  with SVG
+                                        // thats why we use row
+                                        // suffixIcon: SvgPicture.asset("assets/icons/search.svg"),
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          ),
+                            Container(
+                              margin: EdgeInsets.only(top: 20, left: 10),
+                              height: size.height * 0.06,
+                              width: size.width * 0.12,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(36),
+                              ),
+                              child: Icon(
+                                CupertinoIcons.slider_horizontal_3,
+                              ),
+                            ),
+                          ],
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(29.5),
-                          ),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(CupertinoIcons.slider_horizontal_3),
-                          ),
-                        )
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              CatagList(),
-              Container(
-                height: size.height * 0.04,
-                padding: EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Populer',
+            ),
+            CatagList(),
+            Container(
+              height: size.height * 0.04,
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Populer',
+                    style: GoogleFonts.roboto(
+                        color: Color(0xff060608),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'View All',
                       style: GoogleFonts.roboto(
-                          color: Color(0xff060608),
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'View All',
-                        style: GoogleFonts.roboto(
-                          color: Color(0xffC7051A),
-                        ),
+                        color: Color(0xffC7051A),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
-              PopItemList(),
-              Container(
-                height: size.height * 0.04,
-                padding: EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Recommended',
+            ),
+            PopItemList(),
+            Container(
+              height: size.height * 0.04,
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Recommended',
+                    style: GoogleFonts.roboto(
+                        color: Color(0xff060608),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'View All',
                       style: GoogleFonts.roboto(
-                          color: Color(0xff060608),
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'View All',
-                        style: GoogleFonts.roboto(
-                          color: Color(0xffC7051A),
-                        ),
+                        color: Color(0xffC7051A),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
-              RecommendedItemList(),
-            ],
-          ),
+            ),
+            RecommendedItemList(),
+          ],
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:womenbag_store_ui_kit/models/categories.dart';
 
 class CatagList extends StatelessWidget {
@@ -51,7 +52,9 @@ class CatCard extends StatelessWidget {
             SizedBox(
               height: size.height * 0.009,
             ),
-            Text(categories.name),
+            Text(
+              categories.name,
+            ),
           ],
         ),
       ),

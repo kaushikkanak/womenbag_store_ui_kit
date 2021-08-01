@@ -183,6 +183,7 @@ class ProductScreen extends StatelessWidget {
                 ),
               ),
             ),
+            Spacer(),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

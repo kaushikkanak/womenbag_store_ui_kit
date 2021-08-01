@@ -37,10 +37,15 @@ class RecomCard extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Card(
       child: Container(
-        width: size.width * 0.43,
+        width: size.width * 0.44,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(recommendedItem.svgSrc),
+            Image.asset(
+              recommendedItem.svgSrc,
+              height: size.height * 0.1,
+              width: size.width * 0.15,
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
