@@ -134,7 +134,7 @@ class MyHomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Recommend',
+                      'Recommended',
                       style: GoogleFonts.roboto(
                           color: Color(0xff060608),
                           fontSize: 18,
